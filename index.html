@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Tic tac toe board</title>
+		<meta name="description" content="Tic tac toe in the browser!" />
+		<meta name="author" content="Trevor Taylor" />
+		<link rel="stylesheet" href="styles.css" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+	</head>
+	<body>
+		<!-- page content -->
+		<div class="mainContainer">
+			<div>
+				<!-- intermediary wrapper -->
+				<div id="titleBar">
+					<!-- Title for page -->
+					<p>TIC TAC TOE!</p>
+					<hr class="tbLine" />
+					<ul class="links">
+						<li>
+							<a>
+								<button
+									id="btn_pickX"
+									data-token-name="X"
+									data-token-color="red"
+									data-selected="false"
+									onclick="placeX()"
+								>
+									Place 'X'
+								</button>
+							</a>
+						</li>
+						<li>
+							<!-- add link -->
+							<a>
+								<button
+									id="btn_reset"
+									data-token-name="reset"
+									data-token-color="blue"
+									data-selected=" "
+									onclick="resetBoard()"
+								>
+									Reset Board
+								</button>
+							</a>
+						</li>
+						<li>
+							<!-- add link -->
+							<a>
+								<button
+									id="btn_pickO"
+									data-token-name="O"
+									data-token-color="blue"
+									data-selected="false"
+									onclick="placeO()"
+								>
+									Place 'O'
+								</button>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id="board-base">
+					<ul class="rows">
+						<li id="row1">
+							<canvas
+								id="tLeft"
+								width="100px"
+								height="100px"
+								data-wasClicked="n"
+								data-draw-token="n"
+							></canvas>
+							<canvas
+								id="tCenter"
+								width="100px"
+								height="100px"
+								data-wasClicked="n"
+								data-draw-token="n"
+							></canvas>
+							<canvas
+								id="tRight"
+								width="100px"
+								height="100px"
+								data-wasClicked="n"
+								data-draw-token="n"
+							></canvas>
+						</li>
+						<li id="row2">
+							<canvas
+								id="mLeft"
+								width="100px"
+								height="100px"
+								data-wasClicked="n"
+								data-draw-token="n"
+							></canvas>
+							<canvas
+								id="mCenter"
+								width="100px"
+								height="100px"
+								data-wasClicked="n"
+								data-draw-token="n"
+							></canvas>
+							<canvas
+								id="mRight"
+								width="100px"
+								height="100px"
+								data-wasClicked="n"
+								data-draw-token="n"
+							></canvas>
+						</li>
+						<li id="row3">
+							<canvas
+								id="bLeft"
+								width="100px"
+								height="100px"
+								data-wasClicked="n"
+								data-draw-token="n"
+							></canvas>
+							<canvas
+								id="bCenter"
+								width="100px"
+								height="100px"
+								data-wasClicked="n"
+								data-draw-token="n"
+							></canvas>
+							<canvas
+								id="bRight"
+								width="100px"
+								height="100px"
+								data-wasClicked="n"
+								data-draw-token="n"
+							></canvas>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="scripts.js"></script>
+</html>

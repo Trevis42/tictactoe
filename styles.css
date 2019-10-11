@@ -1,0 +1,173 @@
+html,
+body,
+address,
+blockquote,
+div,
+form,
+fieldset,
+caption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+ul,
+li,
+ol,
+ul,
+dl,
+dt,
+dd,
+br,
+table,
+tr,
+td,
+th,
+p,
+img {
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background-color: rgb(112, 128, 144);
+}
+
+body {
+	margin: 0 auto;
+	margin-bottom: 0%;
+	max-width: 70%;
+	background-color: white;
+	padding: 10px 10px;
+}
+
+.mainContainer {
+	height: auto;
+}
+
+a:link {
+	color: #708090;
+}
+a:visited {
+	color: #284949;
+}
+a:hover {
+	color: #3f638a;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.2rem;
+}
+
+#titleBar {
+	margin: 20px auto;
+	size: 100%;
+	text-align: center;
+	border: 5px solid rgb(112, 128, 144);
+}
+#titleBar p {
+	font-size: 40px;
+	font-weight: bold;
+	color: rgb(123, 137, 151);
+	margin-top: 17.5px;
+	margin-bottom: 17.5px;
+	line-height: 50px;
+}
+
+hr.tbLine {
+	height: 5px;
+	border: 0 none;
+	background-color: rgb(112, 128, 144);
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.links {
+	list-style-type: square;
+	margin: 5px auto;
+	padding: 0px;
+}
+
+.links li {
+	display: inline-block;
+	padding: 5px 5%;
+	width: 20% auto;
+}
+
+.links li a {
+	width: auto;
+	text-align: center;
+}
+
+#btn_pickX,
+#btn_pickO,
+#btn_reset {
+	box-sizing: border-box;
+	width: auto;
+	height: auto;
+	background-color: rgb(194, 214, 226);
+}
+
+#btn_pickX:disabled,
+#btn_pickO:disabled {
+	color: lightgrey;
+	background-color: gray;
+	box-shadow: none;
+}
+#btn_reset {
+	color: rgb(190, 190, 190);
+	background-color: white;
+	box-shadow: inset 0 0 0 2px rgb(190, 190, 190);
+}
+#btn_pickX {
+	color: crimson;
+	box-shadow: inset 0 0 0 2px crimson;
+}
+
+#btn_pickO {
+	color: steelblue;
+	box-shadow: inset 0 0 0 2px steelblue;
+}
+
+#board-base {
+	background-color: blue;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	width: 300px;
+}
+.row {
+	height: 200px;
+	list-style-type: none;
+	font-size: 0px;
+}
+.rows li {
+	font-size: 0px;
+	display: block;
+	width: auto;
+	height: 100px;
+}
+.rows li canvas {
+	box-sizing: border-box;
+	background-color: rgb(112, 128, 144);
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	border: 1px solid #000;
+}
+
+.rows li canvas:hover {
+	background-color: slateblue;
+	color: slateblue;
+	box-shadow: inset 0 0 0 3px darkslateblue;
+}

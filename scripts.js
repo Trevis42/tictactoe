@@ -81,7 +81,6 @@ window.onload = function() {
 //function to draw the tokens
 function drawTokens() {
 	let canvas = this;
-
 	let info = getTokenInfo();
 	let color = info.tknColor;
 	let name = info.tknName;

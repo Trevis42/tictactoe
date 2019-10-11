@@ -7,6 +7,7 @@ const canvasArr = ["tLeft", "tCenter", "tRight", "mLeft", "mCenter", "mRight", "
 let cells = document.querySelectorAll("canvas");
 let tokensArr = [];
 let didWin = false;
+let turn = 0;
 
 const strX = btnX.dataset.tokenName;
 const colorX = btnX.dataset.tokenColor;
@@ -65,6 +66,7 @@ const resetBoard = function() {
 	btnX.disabled = false;
 	btnO.disabled = false;
 	didWin = false;
+	turn = 0;
 	populateTokenArray();
 };
 
@@ -87,7 +89,7 @@ function drawTokens() {
 	canvas.dataset.drawToken = "n";
 
 	console.log(`canvas draw before: ${canvas.dataset.drawToken}`);
-
+	//draws token when clicked if button is selected
 	if ((name === strX || name === strO) && canvas.dataset.drawToken === "n") {
 		console.log(`Draw: ${name} on cell: ${canvas.id}`);
 
@@ -106,7 +108,8 @@ function drawTokens() {
 				console.log(`index: ${i}  name: ${name}`);
 			}
 		}
-		winnerWinner(name);
+
+		winnerWinner(name, ++turn);
 	}
 	console.log(`canvas draw after: ${canvas.dataset.drawToken}`);
 
@@ -128,7 +131,9 @@ function drawTokens() {
 }
 
 //check win condition
-function winnerWinner(tName) {
+function winnerWinner(tName, turn) {
+	console.log(`Turn: ${turn}`);
+
 	//top row
 	if (
 		(tokensArr[0] === strX && tokensArr[1] === strX && tokensArr[2] === strX) ||
@@ -138,7 +143,7 @@ function winnerWinner(tName) {
 		didWin = true;
 	}
 	//mid row
-	else if (
+	if (
 		(tokensArr[3] === strX && tokensArr[4] === strX && tokensArr[5] === strX) ||
 		(tokensArr[3] === strO && tokensArr[4] === strO && tokensArr[5] === strO)
 	) {
@@ -146,7 +151,7 @@ function winnerWinner(tName) {
 		didWin = true;
 	}
 	//bot row
-	else if (
+	if (
 		(tokensArr[6] === strX && tokensArr[7] === strX && tokensArr[8] === strX) ||
 		(tokensArr[6] === strO && tokensArr[7] === strO && tokensArr[8] === strO)
 	) {
@@ -154,7 +159,7 @@ function winnerWinner(tName) {
 		didWin = true;
 	}
 	//left col
-	else if (
+	if (
 		(tokensArr[0] === strX && tokensArr[3] === strX && tokensArr[6] === strX) ||
 		(tokensArr[0] === strO && tokensArr[3] === strO && tokensArr[6] === strO)
 	) {
@@ -162,7 +167,7 @@ function winnerWinner(tName) {
 		didWin = true;
 	}
 	//mid col
-	else if (
+	if (
 		(tokensArr[1] === strX && tokensArr[4] === strX && tokensArr[7] === strX) ||
 		(tokensArr[1] === strO && tokensArr[4] === strO && tokensArr[7] === strO)
 	) {
@@ -170,7 +175,7 @@ function winnerWinner(tName) {
 		didWin = true;
 	}
 	//right col
-	else if (
+	if (
 		(tokensArr[2] === strX && tokensArr[5] === strX && tokensArr[8] === strX) ||
 		(tokensArr[2] === strO && tokensArr[5] === strO && tokensArr[8] === strO)
 	) {
@@ -178,7 +183,7 @@ function winnerWinner(tName) {
 		didWin = true;
 	}
 	//diag tLeft to bRight
-	else if (
+	if (
 		(tokensArr[0] === strX && tokensArr[4] === strX && tokensArr[8] === strX) ||
 		(tokensArr[0] === strO && tokensArr[4] === strO && tokensArr[8] === strO)
 	) {
@@ -186,7 +191,7 @@ function winnerWinner(tName) {
 		didWin = true;
 	}
 	//diag tRight to bLeft
-	else if (
+	if (
 		(tokensArr[2] === strX && tokensArr[4] === strX && tokensArr[6] === strX) ||
 		(tokensArr[2] === strO && tokensArr[4] === strO && tokensArr[6] === strO)
 	) {
@@ -195,27 +200,29 @@ function winnerWinner(tName) {
 	}
 
 	//print if win, not yet determined or a tie
-	if (!didWin) {
-		console.log("No winner yet");
-		//didWin = false;
-	} else if (didWin) {
+	if (didWin === true) {
 		console.log(`Token: ${tName} WINS!!!`);
 		didWin = false;
 		Swal.fire({
 			type: "success",
-			title: "WIN!!!!",
-			text: `Looks like \'${tName}\' Won!`,
+			title: "!WINNER &#128515 WINNER!",
+			text: `Congrats, Player \'${tName}\' has won!`,
 			footer:
 				'<a><button id="btn_reset" data-token-name="reset" data-token-color="blue" data-selected="" onclick="resetBoard()"> Reset Board </button></a>'
 		});
 		//btnReset.click();
 		//resetBoard();
 	} else {
-		console.log("TIE!!!!!!");
+		console.log("No winner yet");
+		//didWin = false;
+	}
+
+	if (turn >= 9) {
+		console.log("TIE!!!!");
 		Swal.fire({
 			type: "question",
-			title: "TIE...",
-			text: "Looks like you both tied!",
+			title: "TIE...&#128528",
+			text: "Looks like you both tied. Please try again.",
 			footer:
 				'<a><button id="btn_reset" data-token-name="reset" data-token-color="blue" data-selected="" onclick="resetBoard()"> Reset Board </button></a>'
 		});

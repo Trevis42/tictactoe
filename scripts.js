@@ -216,7 +216,7 @@ function winnerWinner(tName, turn) {
 		//didWin = false;
 	}
 
-	if (turn >= 9) {
+	if (turn >= 9 && didWin === false) {
 		console.log("TIE!!!!");
 		Swal.fire({
 			type: "question",

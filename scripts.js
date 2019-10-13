@@ -211,12 +211,7 @@ function winnerWinner(tName, turn) {
 		});
 		//btnReset.click();
 		//resetBoard();
-	} else {
-		console.log("No winner yet");
-		//didWin = false;
-	}
-
-	if (turn >= 9 && didWin === false) {
+	} else if (turn >= 9 && didWin === false) {
 		console.log("TIE!!!!");
 		Swal.fire({
 			type: "question",
@@ -227,6 +222,9 @@ function winnerWinner(tName, turn) {
 		});
 		//btnReset.click();
 		//resetBoard();
+	} else {
+		console.log("No winner yet");
+		//didWin = false;
 	}
 }
 

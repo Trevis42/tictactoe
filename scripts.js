@@ -209,8 +209,7 @@ function winnerWinner(tName, turn) {
 			footer:
 				'<a><button id="btn_reset" data-token-name="reset" data-token-color="blue" data-selected="" onclick="resetBoard()"> Reset Board </button></a>'
 		});
-		//btnReset.click();
-		//resetBoard();
+		//check for tie
 	} else if (turn >= 9 && didWin === false) {
 		console.log("TIE!!!!");
 		Swal.fire({
@@ -220,8 +219,6 @@ function winnerWinner(tName, turn) {
 			footer:
 				'<a><button id="btn_reset" data-token-name="reset" data-token-color="blue" data-selected="" onclick="resetBoard()"> Reset Board </button></a>'
 		});
-		//btnReset.click();
-		//resetBoard();
 	} else {
 		console.log("No winner yet");
 		//didWin = false;
